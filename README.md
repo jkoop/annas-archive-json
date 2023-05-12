@@ -19,7 +19,7 @@ Translating proxy for annas-archive. It repeats the request, finds the JSON bloc
          - ./storage:/storage
          - ./tokens.txt:/tokens.txt
        ports:
-         - 8080:80
+         - 8080:8080
    ```
 2. Create a `tokens.txt` file. It's a new-line separated list of authorization tokens (via `Authorization: Basic *****`). Add something unguessable.
 3. Create a `storage/` folder. Make it read/writable by everyone.
