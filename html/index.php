@@ -9,7 +9,7 @@ $tokens = array_values($tokens);
 if ($_SERVER['REQUEST_METHOD'] != 'GET' && $_SERVER['REQUEST_METHOD'] != 'HEAD') abort(405);
 
 $requestToken = trim($_SERVER['HTTP_AUTHORIZATION'] ?? abort(401, 'missing authorization header'));
-if (!str_starts_with(strtolower($requestToken), 'basic ') ?? abort(401, 'wrong authorization scheme'));
+if (!str_starts_with(strtolower($requestToken), 'basic ')) abort(401, 'wrong authorization scheme');
 $requestToken = trim(substr($requestToken, 6)); // strlen('basic ')
 if (!in_array($requestToken, $tokens)) abort(401, 'invalid authorization token');
 
